@@ -81,53 +81,55 @@ export default function Home() {
 
   return (
     <>
-      <div className="relative overflow-hidden mx-[6%] my-[2%] rounded-3xl">
-        <div
-          className="flex transition-transform duration-700 ease-in-out"
-          style={{ transform: `translateX(-${activeIndex * 100}%)` }}
-        >
-          {slides.map((slide, index) => (
-            <div key={index} className="min-w-full bg-[#212844] py-[1.5%] relative flex justify-center items-center">
-              <div className="w-[80%] flex justify-between items-center text-white">
-                <div>
-                  <p className="text-2xl font-medium">{slide.title}</p>
-                  <h1 className="text-6xl font-medium">{slide.headline}</h1>
-                  <p className="text-2xl font-medium">{slide.discount}</p>
-                </div>
-                <img className="z-50 max-w-[300px]" src={slide.image} alt="Product Image" />
-              </div>
-              <img className="absolute top-0 right-0" src="/bg.webp" alt="Background" />
-            </div>
-          ))}
+<div className="relative overflow-hidden mx-[6%] my-[2%] rounded-3xl">
+  <div
+    className="flex transition-transform duration-700 ease-in-out"
+    style={{ transform: `translateX(-${activeIndex * 100}%)` }}
+  >
+    {slides.map((slide, index) => (
+      <div key={index} className="min-w-full bg-[#212844] py-[1.5%] relative flex justify-center items-center">
+        <div className="w-[80%] flex flex-col md:flex-row justify-between items-center text-white">
+          <div className="text-center md:text-left">
+            <p className="text-2xl font-medium">{slide.title}</p>
+            <h1 className="text-6xl font-medium">{slide.headline}</h1>
+            <p className="text-2xl font-medium">{slide.discount}</p>
+          </div>
+          <img className="z-50 max-w-[300px]" src={slide.image} alt="Product Image" />
         </div>
-        <button
-          onClick={prevSlide}
-          className="absolute -left-5 z-50 top-1/2 transform -translate-y-1/2 bg-white w-15 h-15 flex items-center justify-center rounded-full shadow-lg"
-        >
-          <FaChevronLeft className="text-blue text-md bg-BlueGray w-13 h-13 p-2 rounded-full z-50" />
-        </button>
-        <button
-          onClick={nextSlide}
-          className="absolute -right-5 z-50 top-1/2 transform -translate-y-1/2 bg-white w-15 h-15 flex items-center justify-center rounded-full shadow-lg"
-        >
-          <FaChevronRight className="text-blue text-md bg-BlueGray w-13 h-13 p-2 rounded-full z-50" />
-        </button>
-        <div className="flex items-center absolute bottom-8 left-40">
-          {Array.from({ length: slides.length + 1 }).map((_, idx) => (
-            <div key={idx} className={`relative flex items-center ${idx === activeIndex ? "" : ""}`}>
-              <span
-                className={`w-3 h-3 gap-3 rounded-full transition-all duration-300 relative ${idx === activeIndex || idx === Math.min(activeIndex + 1, slides.length)
-                  ? "bg-white mx-1"
-                  : "bg-gray-400 mx-1"
-                  }`}
-              />
-              {idx === activeIndex && idx !== slides.length && (
-                <div className="absolute left-1/2 -translate-x-1/4 w-9 h-3 bg-white rounded-full"></div>
-              )}
-            </div>
-          ))}
-        </div>
+        <img className=" hidden sm:block absolute top-0 right-0" src="/bg.webp" alt="Background" />
       </div>
+    ))}
+  </div>
+  <button
+    onClick={prevSlide}
+    className="absolute -left-5 z-50 top-1/2 transform -translate-y-1/2 bg-white w-15 h-15 flex items-center justify-center rounded-full shadow-lg"
+  >
+    <FaChevronLeft className="text-blue text-md bg-BlueGray w-13 h-13 p-2 rounded-full z-50" />
+  </button>
+  <button
+    onClick={nextSlide}
+    className="absolute -right-5 z-50 top-1/2 transform -translate-y-1/2 bg-white w-15 h-15 flex items-center justify-center rounded-full shadow-lg"
+  >
+    <FaChevronRight className="text-blue text-md bg-BlueGray w-13 h-13 p-2 rounded-full z-50" />
+  </button>
+  <div className="flex items-center absolute bottom-8 left-1/2 transform -translate-x-1/2">
+    {Array.from({ length: slides.length }).map((_, idx) => (
+      <div key={idx} className="relative flex items-center">
+        <span
+          className={`w-3 h-3 gap-3 rounded-full transition-all duration-300 relative ${
+            idx === activeIndex || idx === Math.min(activeIndex + 1, slides.length)
+              ? "bg-white mx-1"
+              : "bg-gray-400 mx-1"
+          }`}
+        />
+        {idx === activeIndex && idx !== slides.length - 1 && (
+          <div className="absolute left-1/2 -translate-x-1/4 w-9 h-3 bg-white rounded-full"></div>
+        )}
+      </div>
+    ))}
+  </div>
+</div>
+
 
       <div className=" px-[5%] my-2">
         <div className=" flex justify-between">
@@ -139,7 +141,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className=" grid grid-cols-5 px-[5%] gap-10 my-[3%]">
+      <div className=" grid grid-cols-1 sm:grid-cols-3 md:grid-cols-5 px-[5%] gap-10 my-[3%]">
         {DataSmart.map((item) => (
           <article key={item.id} className=" relative border-1 border-[#EDEDED] hover:border-blue rounded-2xl hover:scale-105 hover:shadow-lg transition-transform duration-300">
             <div className=" bg-bg flex justify-center h-[200px] rounded-t-2xl">
@@ -166,7 +168,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className=" grid grid-cols-7 my-[3%]">
+      <div className=" grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-7 my-[3%]">
         {DataImg.map((pero) => (
           <article key={pero.id} className=" mx-auto text-center">
             <div className="border-2 p-2 border-bg hover:border-blue bg-bg h-[100px] w-[100px]  flex justify-center rounded-full hover:scale-110 transition-transform duration-300">
@@ -194,7 +196,7 @@ export default function Home() {
         >
           {slide.map((slide, index) => (
             <div key={index} className="min-w-full relative flex justify-center items-center">
-              <div className=" items-center w-[90%] gap-5 flex justify-between items-center text-white">
+              <div className=" w-[90%] gap-5 flex justify-between items-center text-white">
                 <img src={slide.img} alt="" />
                 <img src={slide.img2} alt="" />
                 <img src={slide.img3} alt="" />
@@ -241,7 +243,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className=" grid grid-cols-6 mx-[6%] gap-5 my-[4%]">
+      <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 mx-[6%] gap-5 my-[4%]">
           {DataFood.map((no) => (
             <article key={no.id} className=" text-center rounded-lg border-1 border-[#F5F5F5] hover:border-blue hover:scale-105 transition-transform duration-300">
               <div className=" h-[180px] items-center flex justify-center w-full bg-[#F5F5F5] rounded-t-lg">

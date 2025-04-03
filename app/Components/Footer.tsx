@@ -4,8 +4,8 @@ import { PiPhoneCallLight } from "react-icons/pi";
 
 export default function Footer() {
   return (
-    <div className=" bg-blue flex relative justify-between px-[8%] py-[2%] text-white">
-      <div className=" w-[80%] flex justify-between">
+    <div className=" bg-blue sm:flex relative justify-between px-[8%] py-[2%] text-white">
+      <div className=" w-[80%] sm:flex justify-between">
       <div className=" space-y-2">
         <h1 className=" text-4xl font-bold">Mega Mark</h1>
         <h4 className=" text-lg font-bold">Contact </h4>

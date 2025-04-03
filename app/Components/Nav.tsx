@@ -15,7 +15,7 @@ export default function Nav() {
   const [activeIndex, setActiveIndex] = useState<string>("Groceries");
   return (
     <>
-      <div className=" bg-bg flex justify-between items-center py-[0.3%] px-[5%]">
+      <div className=" hidden sm:flex bg-bg sm:flex justify-between items-center py-[0.3%] px-[5%]">
         <small className=" text-primary">Welcome to worldwide Megamart!</small>
         <div className=" flex gap-4 items-center">
           <small className=" flex gap-1 items-center text-primary"><TiLocation className=" text-blue text-base"/>Deliver to <span className=" font-bold">423651</span></small>
@@ -28,21 +28,21 @@ export default function Nav() {
 
       <div className=" flex justify-between py-[1%] px-[5%]">
         <h1 className=" flex items-center gap-2 text-3xl font-medium text-blue"><CgMenuLeft className=" bg-BlueGray rounded-md p-1 w-12 h-12" /> Mega Mark</h1>
-        <div className=" flex gap-4 items-center w-[60%]">
-          <div className=" flex gap-2 items-center w-[60%] bg-BlueGray rounded-md px-5">
+        <div className=" hidden sm:flex gap-4 items-center w-[60%]">
+          <div className=" hidden sm:flex gap-2 items-center w-[60%] bg-BlueGray rounded-md px-5">
             <HiOutlineSearch className=" text-blue text-2xl" />
             <input className="w-[100%] py-2 outline-0" type="text" placeholder='Search essentials, groceries and more...' />
             <TfiMenuAlt className=" text-blue text-2xl" />
           </div>
-          <h2 className=" flex gap-1 items-center text-primary text-xl font-medium"><RiUser3Line className=" text-blue text-3xl" />Sign Up/Sign In</h2>
-          <h2 className=" text-[#D9D9D9]">|</h2>
-          <h2 className=" flex gap-1 items-center text-primary text-xl font-medium"><RiShoppingCart2Line className=" text-blue text-3xl" />Cart</h2>
+          <h2 className=" hidden sm:flex gap-1 items-center text-primary text-xl font-medium"><RiUser3Line className=" text-blue text-3xl" />Sign Up/Sign In</h2>
+          <h2 className=" hidden sm:flex text-[#D9D9D9]">|</h2>
+          <h2 className=" hidden sm:flex gap-1 items-center text-primary text-xl font-medium"><RiShoppingCart2Line className=" text-blue text-3xl" />Cart</h2>
         </div>
       </div>
 
-      <div className=" border-1 border-[#EDEDED]"></div>
+      <div className="hidden sm:flex border-1 border-[#EDEDED]"></div>
 
-      <div className=" flex justify-between px-[4%] py-[1%]">
+      <div className=" hidden sm:flex justify-between px-[4%] py-[1%]">
         <p onClick={() => setActiveIndex("Groceries")} className={` py-1 px-4 rounded-full flex items-center gap-2 font-medium ${ activeIndex === "Groceries" ? " bg-blue text-white" : " bg-BlueGray text-black" }`}>Groceries<RiArrowDownSLine className={`text-lg ${ activeIndex === "Groceries" ? "text-white" : "text-blue" }`} /></p>
         <p onClick={() => setActiveIndex("Premium")} className={` py-1 px-4 rounded-full flex items-center gap-2 font-medium ${ activeIndex === "Premium" ? " bg-blue text-white" : " bg-BlueGray text-black" }`}>Premium Fruits<RiArrowDownSLine className={`text-lg ${ activeIndex === "Premium" ? "text-white" : "text-blue" }`} /></p>
         <p onClick={() => setActiveIndex("Home")} className={` py-1 px-4 rounded-full flex items-center gap-2 font-medium ${ activeIndex === "Home" ? " bg-blue text-white" : " bg-BlueGray text-black" }`}>Home & Kitchen<RiArrowDownSLine className={`text-lg ${ activeIndex === "Home" ? "text-white" : "text-blue" }`} /></p>
@@ -53,7 +53,7 @@ export default function Nav() {
         <p onClick={() => setActiveIndex("Toys")} className={` py-1 px-4 rounded-full flex items-center gap-2 font-medium ${ activeIndex === "Toys" ? " bg-blue text-white" : " bg-BlueGray text-black" }`}>Sports, Toys & Luggage<RiArrowDownSLine className={`text-lg ${ activeIndex === "Toys" ? "text-white" : "text-blue" }`} /></p>
       </div>
 
-      <div className=" border-1 border-[#EDEDED]"></div>
+      <div className="hidden sm:flex border-1 border-[#EDEDED]"></div>
     </>
   )
 }
